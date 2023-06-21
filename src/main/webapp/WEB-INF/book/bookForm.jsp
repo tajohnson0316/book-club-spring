@@ -36,7 +36,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="/dashboard" class="nav-link">Home</a>
+          <a href="/dashboard" class="nav-link">
+            Home
+          </a>
         </li>
       </ul>
       <a href="/logout" class="btn btn-outline-danger" role="button">Log Out</a>
@@ -44,7 +46,6 @@
   </div>
 </nav>
 <div class="container p-5">
-  <h1>${userId}</h1>
   <h1>Add a book to your shelf</h1>
   <form:form action="/books/new/create" method="post" modelAttribute="book">
     <form:input type="hidden" path="user" value="${userId}"/>

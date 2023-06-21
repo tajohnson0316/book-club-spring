@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: arman
-  Date: 6/20/2023
-  Time: 11:12 PM
+  Date: 6/21/2023
+  Time: 10:15 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <script type="text/javascript" src="/js/app.js"></script>
   
-  <title>Read Share - Book #${book.id}</title>
+  <title>Read Share - Edit Book</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -44,45 +44,41 @@
   </div>
 </nav>
 <div class="container p-5">
-  <div class="card w-100 mb-3">
-    <div class="card-header text-center fs-3">
-      ${book.title}
-    </div>
-    <div class="card-body">
-      <p class="fs-4 mb-3">
-        <span style="color: red">${book.user.userName}</span> read
-        <span style="color: cornflowerblue">${book.title}</span> by
-        <span style="color: rebeccapurple">${book.author}</span> on
-        <span class="fw-bold">
-          <fmt:formatDate value="${book.createdAt}"/>
-        </span>.
-      </p>
-      <p>Here are ${book.user.userName}'s thoughts...</p>
-      <hr>
-      <p class="fs-4 mb-3">
-        ${book.comments}
+  <h1>Edit Book</h1>
+  <form:form action="/books/update/${book.id}" method="put" modelAttribute="book">
+    <form:input type="hidden" path="user" value="${userId}"/>
+    <div class="mb-3">
+      <form:label path="title" class="form-label">
+        Title:
+      </form:label>
+      <form:input path="title" class="form-control"/>
+      <p class="text-danger">
+        <form:errors path="title"/>
       </p>
     </div>
-  </div>
-  <div class="d-flex justify-content-end gap-3">
-    <c:choose>
-      <c:when test="${book.user.id == userId}">
-        <form action="/books/delete/${book.id}" method="post">
-          <a href="/books/edit/${book.id}" class="btn btn-warning">
-            Edit
-          </a>
-          <input type="hidden" name="_method" value="delete">
-          <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-      </c:when>
-      <c:otherwise>
-        <a class="btn btn-warning disabled">
-          Edit
-        </a>
-        <button type="submit" class="btn btn-danger" disabled>Delete</button>
-      </c:otherwise>
-    </c:choose>
-  </div>
+    <div class="mb-3">
+      <form:label path="author" class="form-label">
+        Author:
+      </form:label>
+      <form:input path="author" class="form-control"/>
+      <p class="text-danger">
+        <form:errors path="author"/>
+      </p>
+    </div>
+    <div class="mb-3">
+      <form:label path="comments" class="form-label">
+        Your thoughts:
+      </form:label>
+      <form:textarea path="comments" class="form-control"/>
+      <p class="text-danger">
+        <form:errors path="comments"/>
+      </p>
+    </div>
+    <div class="d-flex justify-content-end gap-3">
+      <a href="/dashboard" class="btn btn-danger" role="button">Cancel</a>
+      <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </form:form>
 </div>
 </body>
 </html>
