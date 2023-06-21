@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.UUID;
-
 @Controller
 public class UserController {
   @Autowired
@@ -23,7 +21,7 @@ public class UserController {
   @GetMapping("/")
   public String index(HttpSession session, Model model) {
     if (session.getAttribute("userId") != null) {
-      return "redirect:/home";
+      return "redirect:/dashboard";
     }
 
     model.addAttribute("newUser", new User());
@@ -49,7 +47,7 @@ public class UserController {
 
     session.setAttribute("userId", user.getId());
 
-    return "redirect:/home";
+    return "redirect:/dashboard";
   }
 
   @PostMapping("/users/login")
@@ -69,21 +67,7 @@ public class UserController {
 
     session.setAttribute("userId", user.getId());
 
-    return "redirect:/home";
-  }
-
-  @GetMapping("/home")
-  public String home(HttpSession session, Model model) {
-    UUID userId = (UUID) session.getAttribute("userId");
-
-    if (userService.isValidId(userId)) {
-      String userName = userService.getUserByUuid(userId).getUserName();
-      model.addAttribute("userName", userName);
-
-      return "dashboard.jsp";
-    }
-
-    return "redirect:/";
+    return "redirect:/dashboard";
   }
 
   @GetMapping("/logout")

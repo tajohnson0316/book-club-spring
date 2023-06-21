@@ -21,7 +21,7 @@ public class UserService {
       return null;
     }
 
-    Optional<User> user = userRepository.findByEmail(newLogin.getEmail());
+    Optional<User> user = userRepository.findByEmail(newLogin.getLogEmail());
 
     if (user.isEmpty()) {
       result.rejectValue(
@@ -34,7 +34,7 @@ public class UserService {
 
     User foundUser = user.get();
 
-    if (!BCrypt.checkpw(newLogin.getPassword(), foundUser.getPassword())) {
+    if (!BCrypt.checkpw(newLogin.getLogPassword(), foundUser.getPassword())) {
       result.rejectValue(
         "password",
         "INVALID-LOGIN-PW",

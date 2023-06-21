@@ -19,86 +19,89 @@
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <script type="text/javascript" src="/js/app.js"></script>
   
-  <title>Title</title>
+  <title>Welcome to Read Share</title>
 </head>
 <body>
-<div class="d-flex container justify-content-apart gap-3 p-5">
-  <!-- Registration card start -->
-  <div class="card col-6 mb-3">
-    <div class="card-body">
-      <h2 class="text-success">Register</h2>
-      <form:form action="/users/register" method="post" modelAttribute="newUser">
-        <!-- Username -->
-        <div class="mb-3">
-          <form:label path="userName" class="form-label">
-            Username:
-          </form:label>
-          <form:input path="userName" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="userName"/>
-          </p>
-        </div>
-        <!-- Email -->
-        <div class="mb-3">
-          <form:label path="email" class="form-label">
-            E-mail:
-          </form:label>
-          <form:input type="email" path="email" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="email"/>
-          </p>
-        </div>
-        <!-- Password -->
-        <div class="mb-3">
-          <form:label path="password" class="form-label">
-            Password:
-          </form:label>
-          <form:input type="password" path="password" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="password"/>
-          </p>
-        </div>
-        <!-- Confirm Password -->
-        <div class="mb-3">
-          <form:label path="confirmPassword" class="form-label">
-            Confirm password:
-          </form:label>
-          <form:input type="password" path="confirmPassword" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="confirmPassword"/>
-          </p>
-        </div>
-        <button type="submit" class="btn btn-success">Register</button>
-      </form:form>
+<div class="container p-5">
+  <h1 style="color: rebeccapurple">Read Share - the Online Bookshelf</h1>
+  <div class="d-flex justify-content-apart gap-3 p-5">
+    <!-- Registration card start -->
+    <div class="card col-6 mb-3">
+      <div class="card-body">
+        <h2 class="text-success">Register</h2>
+        <form:form action="/users/register" method="post" modelAttribute="newUser">
+          <!-- Username -->
+          <div class="mb-3">
+            <form:label path="userName" class="form-label">
+              Username:
+            </form:label>
+            <form:input path="userName" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="userName"/>
+            </p>
+          </div>
+          <!-- Email -->
+          <div class="mb-3">
+            <form:label path="email" class="form-label">
+              E-mail:
+            </form:label>
+            <form:input type="email" path="email" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="email"/>
+            </p>
+          </div>
+          <!-- Password -->
+          <div class="mb-3">
+            <form:label path="password" class="form-label">
+              Password:
+            </form:label>
+            <form:input type="password" path="password" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="password"/>
+            </p>
+          </div>
+          <!-- Confirm Password -->
+          <div class="mb-3">
+            <form:label path="confirmPassword" class="form-label">
+              Confirm password:
+            </form:label>
+            <form:input type="password" path="confirmPassword" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="confirmPassword"/>
+            </p>
+          </div>
+          <button type="submit" class="btn btn-success">Register</button>
+        </form:form>
+      </div>
     </div>
-  </div>
-  <!-- Login card start -->
-  <div class="card col-4 mb-3 h-50">
-    <div class="card-body">
-      <h2 class="text-primary">Log In</h2>
-      <form:form action="/users/login" method="post" modelAttribute="newLogin">
-        <!-- Email -->
-        <div class="mb-3">
-          <form:label path="email" class="form-label">+
-            E-mail:
-          </form:label>
-          <form:input type="email" path="email" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="email"/>
-          </p>
-        </div>
-        <!-- Password -->
-        <div class="mb-3">
-          <form:label path="password" class="form-label">
-            Password:
-          </form:label>
-          <form:input type="password" path="password" class="form-control"/>
-          <p class="text-danger">
-            <form:errors path="password"/>
-          </p>
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-      </form:form>
+    <!-- Login card start -->
+    <div class="card col-4 mb-3 h-50">
+      <div class="card-body">
+        <h2 class="text-primary">Log In</h2>
+        <form:form action="/users/login" method="post" modelAttribute="newLogin">
+          <!-- Email -->
+          <div class="mb-3">
+            <form:label path="logEmail" class="form-label">
+              E-mail:
+            </form:label>
+            <form:input type="email" path="logEmail" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="logEmail"/>
+            </p>
+          </div>
+          <!-- Password -->
+          <div class="mb-3">
+            <form:label path="logPassword" class="form-label">
+              Password:
+            </form:label>
+            <form:input type="password" path="logPassword" class="form-control"/>
+            <p class="text-danger">
+              <form:errors path="logPassword"/>
+            </p>
+          </div>
+          <button type="submit" class="btn btn-primary">Log In</button>
+        </form:form>
+      </div>
     </div>
   </div>
 </div>

@@ -1,17 +1,19 @@
 package com.tajohnson.bookclub.models.user;
 
+import com.tajohnson.bookclub.models.book.Book;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class User {
-  @GeneratedValue(strategy = GenerationType.UUID)
   @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
   @NotBlank(message = "Username is required!")
@@ -27,13 +29,13 @@ public class User {
   @Size(message = "Password must be between 8 and 128 characters")
   private String password;
 
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  private List<Book> books;
+
   @Transient
   @NotBlank(message = "Password confirmation is required!")
   @Size(min = 8, max = 128, message = "Passwords must match")
   private String confirmPassword;
-
-
-  // *** createdAt AND updatedAt FIELDS NOT NEEDED FOR USER AUTHENTICATION ***
 
   public User() {
   }
@@ -68,6 +70,14 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public List<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(List<Book> books) {
+    this.books = books;
   }
 
   public String getConfirmPassword() {
