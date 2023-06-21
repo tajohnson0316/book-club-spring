@@ -36,7 +36,7 @@ public class BookController {
         return "/book/dashboard.jsp";
       }
     }
-    return "redirect:/";
+    return "redirect:/logout";
   }
 
   @GetMapping("/books/new/form")
@@ -54,7 +54,7 @@ public class BookController {
         return "/book/bookForm.jsp";
       }
     }
-    return "redirect:/";
+    return "redirect:/logout";
   }
 
   @GetMapping("/books/edit/{id}")
@@ -73,7 +73,7 @@ public class BookController {
         return "/book/editBookForm.jsp";
       }
     }
-    return "redirect:/";
+    return "redirect:/logout";
   }
 
   @GetMapping("/books/{id}")
@@ -92,7 +92,7 @@ public class BookController {
         return "/book/viewBook.jsp";
       }
     }
-    return "redirect:/";
+    return "redirect:/logout";
   }
 
   @PostMapping("/books/new/create")
