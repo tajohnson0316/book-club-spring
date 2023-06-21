@@ -79,7 +79,7 @@
       <form:form action="/users/login" method="post" modelAttribute="newLogin">
         <!-- Email -->
         <div class="mb-3">
-          <form:label path="email" class="form-label">
+          <form:label path="email" class="form-label">+
             E-mail:
           </form:label>
           <form:input type="email" path="email" class="form-control"/>

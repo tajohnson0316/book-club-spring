@@ -1,4 +1,4 @@
-package com.tajohnson.authentication.models;
+package com.tajohnson.bookclub.models.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

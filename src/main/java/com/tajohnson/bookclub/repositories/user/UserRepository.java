@@ -1,6 +1,6 @@
-package com.tajohnson.authentication.repositories;
+package com.tajohnson.bookclub.repositories.user;
 
-import com.tajohnson.authentication.models.User;
+import com.tajohnson.bookclub.models.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

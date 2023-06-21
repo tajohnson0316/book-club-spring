@@ -1,4 +1,4 @@
-package com.tajohnson.authentication.models;
+package com.tajohnson.bookclub.models.user;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

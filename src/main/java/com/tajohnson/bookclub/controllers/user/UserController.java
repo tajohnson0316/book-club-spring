@@ -1,8 +1,8 @@
-package com.tajohnson.authentication.controllers;
+package com.tajohnson.bookclub.controllers.user;
 
-import com.tajohnson.authentication.models.LoginUser;
-import com.tajohnson.authentication.models.User;
-import com.tajohnson.authentication.services.UserService;
+import com.tajohnson.bookclub.models.user.LoginUser;
+import com.tajohnson.bookclub.models.user.User;
+import com.tajohnson.bookclub.services.user.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.UUID;
 
 @Controller
-public class HomeController {
+public class UserController {
   @Autowired
   private UserService userService;
 
@@ -29,7 +29,7 @@ public class HomeController {
     model.addAttribute("newUser", new User());
     model.addAttribute("newLogin", new LoginUser());
 
-    return "loginReg.jsp";
+    return "/auth/loginReg.jsp";
   }
 
   @PostMapping("/users/register")
@@ -44,7 +44,7 @@ public class HomeController {
     if (result.hasErrors()) {
       model.addAttribute("newLogin", new LoginUser());
 
-      return "loginReg.jsp";
+      return "/auth/loginReg.jsp";
     }
 
     session.setAttribute("userId", user.getId());
@@ -64,7 +64,7 @@ public class HomeController {
     if (result.hasErrors()) {
       model.addAttribute("newUser", new User());
 
-      return "loginReg.jsp";
+      return "/auth/loginReg.jsp";
     }
 
     session.setAttribute("userId", user.getId());
@@ -80,7 +80,7 @@ public class HomeController {
       String userName = userService.getUserByUuid(userId).getUserName();
       model.addAttribute("userName", userName);
 
-      return "home.jsp";
+      return "dashboard.jsp";
     }
 
     return "redirect:/";

@@ -1,8 +1,8 @@
-package com.tajohnson.bookclub.service.user;
+package com.tajohnson.bookclub.services.user;
 
-import com.tajohnson.authentication.models.LoginUser;
-import com.tajohnson.authentication.models.User;
-import com.tajohnson.authentication.repositories.UserRepository;
+import com.tajohnson.bookclub.models.user.LoginUser;
+import com.tajohnson.bookclub.models.user.User;
+import com.tajohnson.bookclub.repositories.user.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
